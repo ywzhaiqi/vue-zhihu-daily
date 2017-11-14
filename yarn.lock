@@ -4832,6 +4832,10 @@ vue-html-loader@^1.0.0:
     loader-utils "^1.0.2"
     object-assign "^4.1.0"
 
+vue-lazyload@^1.1.4:
+  version "1.1.4"
+  resolved "http://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.1.4.tgz#94dbb3fcb047f147f37900c0e22ad4fd478e31c4"
+
 vue-loader@^8.2.1:
   version "8.7.0"
   resolved "http://registry.npm.taobao.org/vue-loader/download/vue-loader-8.7.0.tgz#a9881ead751e75e0084ccd022e7fbdb737806b2a"

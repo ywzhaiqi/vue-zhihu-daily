@@ -1,17 +1,25 @@
+
+// 改为只存在内存中，localStorage 限额太小
 export default class CovLocalDB {
     constructor (name) {
-        this.LS = null
         this.name = name
+        this.data = {}
+
+        this.LS = null
+
         this.checkLS()
-        this.init(name)
+        // this.init(name)
     }
 
     checkLS () {
-        if (window && window.localStorage) {
-            this.LS = window.localStorage
-        } else {
-            console.log('localStorage is there?')
-        }
+        // if (window && window.localStorage) {
+        //     this.LS = window.localStorage
+        // } else {
+        //     console.log('localStorage is there?')
+        // }
+
+        // 删除旧的
+        localStorage.removeItem(this.name)
     }
 
     init (name) {
@@ -26,9 +34,9 @@ export default class CovLocalDB {
 
     set (uri, data) {
         this.data[uri] = data
-        if (this.LS) {
-            this.LS[this.name] = JSON.stringify(this.data)
-        }
+        // if (this.LS) {
+        //     this.LS[this.name] = JSON.stringify(this.data)
+        // }
     }
 
     get (uri) {

@@ -50,7 +50,7 @@
 
 <template>
     <article class="list-item" v-link="{'name': 'news', params: {id: data.id}}">
-        <div class="item-preview" :style="{'background-image': 'url('+ cloudSrc +')'}"></div>
+        <div class="item-preview" v-lazy:background-image="data.img"></div>
         <p class="item-title">{{data.title}}</p>
     </article>
 </template>
@@ -66,13 +66,19 @@
         },
         data () {
             return {
-                cloudSrc: WAIT_IMG
+                // cloudSrc: WAIT_IMG,
+                cloudSrc: null,
             }
         },
         created () {
+
+        },
+        methods: {
+          loadImg() {
             this.$covImg(this, this.data.img, cloudSrc => {
                 this.cloudSrc = cloudSrc
             })
+          }
         }
     }
 </script>

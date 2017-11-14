@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>知乎</title>
+    <title>知乎日报</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,8 +15,9 @@
   <body>
     <cov-app></cov-app>
 
-    <div id="install" style="display: none;">
-      请先使用 Tampermonkey 安装 <a href="https://github.com/ywzhaiqi/userscript/raw/master/private/GM_xhr_outer.user.js">GM_xhr 外置脚本</a>
+    <div id="install" style="display:none; position:fixed; left:30%; top:45%; z-index:300; font-size: 24px;">
+      <p>请先使用 Tampermonkey 安装 <a href="https://github.com/ywzhaiqi/userscript/raw/master/private/GM_xhr_outer.user.js">GM_xhr 外置脚本</a></p>
+      <p>为了加载图片，需设置 <strong>*.zhimg.com</strong> 的 referer</p>
     </div>
 
     <!-- built files will be auto injected -->

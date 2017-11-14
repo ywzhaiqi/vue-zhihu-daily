@@ -33,6 +33,14 @@
         font-size: 1.6rem;
         line-height: 2;
     }
+    /* 一些 fix */
+    .news-content .content {
+      font-size: 16px;
+    }
+    .news-content .content p {
+      margin: 1em 0;
+    }
+
     .main-wrap {
         max-width: 80rem;
     }

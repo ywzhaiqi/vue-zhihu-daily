@@ -10,6 +10,12 @@
 
 使用前先安装 [GM_xhr 外置脚本](https://github.com/ywzhaiqi/userscript/raw/master/private/GM_xhr_outer.user.js)（请使用 Tampermonkey）
 
+知乎原图片有 `Referrer Policy` 为 `no-referrer-when-downgrade` 的限制，可用扩展 `Referer Control` 破解。
+
+### todo
+
+- 图片多还是会卡。需要图片懒加载？
+
 ## Preview
 
  手机端
