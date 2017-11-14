@@ -6,7 +6,7 @@
 
 ## 我的修改
 
-修改为需要 `GM_xmlhttpRequest` 的 serverless 版，个人存放在 `http://ywzhaiqi.gitee.io/zhihu/`。
+修改为需要 `GM_xmlhttpRequest` 的 serverless 版，个人存放在 [http://ywzhaiqi.gitee.io/zhihu/](http://ywzhaiqi.gitee.io/zhihu/)。
 
 ## Preview
 
