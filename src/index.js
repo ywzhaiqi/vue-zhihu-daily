@@ -42,6 +42,11 @@ Vue.prototype.$http = {
       await delay(500)
     }
 
+    if (typeof GM_xmlhttpRequest == 'undefined') {
+      document.getElementById('install').style.display = 'block';
+      return
+    }
+
     console.log('GM_xmlhttpRequest', uri)
 
     const txt = await GM_request(uri)

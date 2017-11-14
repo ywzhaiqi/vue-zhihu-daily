@@ -8,7 +8,7 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   : require('./webpack.dev.conf')
 
 var imagebox    = require('../server/routes/imagebox')
-var api         = require('../server/routes/api') 
+var api         = require('../server/routes/api')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -56,8 +56,8 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // serve pure static assets
-var staticPath = path.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
-app.use(staticPath, express.static('./' + config.build.assetsSubDirectory))
+var staticPath = path.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
+app.use(staticPath, express.static('./' + config.dev.assetsSubDirectory))
 
 app.get('/imagebox', imagebox.upload)
 app.get('/readapi', api.requestApi)

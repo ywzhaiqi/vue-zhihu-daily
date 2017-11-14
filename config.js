@@ -12,6 +12,9 @@ module.exports = {
   },
   dev: {
     port: 8080,
+    assetsRoot: path.resolve(__dirname, 'server/public'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
     proxyTable: {}
   }
 }

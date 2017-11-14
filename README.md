@@ -8,6 +8,8 @@
 
 修改为需要 `GM_xmlhttpRequest` 的 serverless 版，个人存放在 [http://ywzhaiqi.gitee.io/zhihu/](http://ywzhaiqi.gitee.io/zhihu/)。
 
+使用前先安装 [GM_xhr 外置脚本](https://github.com/ywzhaiqi/userscript/raw/master/private/GM_xhr_outer.user.js)（请使用 Tampermonkey）
+
 ## Preview
 
  手机端

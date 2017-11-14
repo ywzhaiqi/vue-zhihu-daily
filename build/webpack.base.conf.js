@@ -8,8 +8,8 @@ module.exports = {
     app: './src/index.js'
   },
   output: {
-    path: config.build.assetsRoot,
-    publicPath: config.build.assetsPublicPath,
+    path: config.dev.assetsRoot,
+    publicPath: config.dev.assetsPublicPath,
     filename: '[name].js'
   },
   resolve: {
