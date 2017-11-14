@@ -1,8 +1,12 @@
-# 知乎日报 with Vuejs
+# My 知乎日报App
 
 > A Vue.js & Nodejs project
 
 > 声明：『知乎』是 知乎. Inc 的注册商标。本软件与其代码非由知乎创作或维护。软件中所包含的信息与内容皆违反版权与知乎用户协议。它是一个免费软件，使用它不收取您任何费用。其中的所有内容均可在知乎获取。
+
+## 我的修改
+
+修改为需要 `GM_xmlhttpRequest` 的 serverless 版，个人存放在 `http://ywzhaiqi.gitee.io/zhihu/`。
 
 ## Preview
 
@@ -22,7 +26,7 @@
 
 ## Related content
 
-- Vue.js
+- Vue.js 1.X
 - vue-router
 - vue-resource
 - vuex

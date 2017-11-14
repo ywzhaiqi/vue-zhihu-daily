@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
 import VueProgressbar from 'vue-progressbar'
 import { sync } from 'vuex-router-sync'
 
@@ -9,9 +8,9 @@ import App from './views/app'
 import store from './vuex/index/store'
 import router from './router/index'
 import CovLocalDB from './util'
+import { delay, GM_request, GM_getImageBase64 } from './utils'
 
 Vue.use(VueProgressbar)
-Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
@@ -27,23 +26,30 @@ Vue.prototype.$covImg = (self, uri, callback) => {
         return callback(IMG_MAP.get(uri))
     }
 
-    let data = window.btoa(uri.split('').reverse().join(''))
-    self.$http.get(window.location.origin + '/imagebox?type=rev-64&data=' + data)
-        .then(response => {
-            if (response.data.code === 200) {
-                IMG_MAP.set(uri, response.data.data.url)
-                callback(response.data.data.url)
-            } else {
-                console.log(response.data.message)
-            }
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    GM_getImageBase64(uri, base64Url => {
+      IMG_MAP.set(uri, base64Url)
+      callback(base64Url)
+    })
 }
 
 Vue.prototype.$Api = (url) => {
-    return window.location.origin + '/readapi?uri=' + url
+    return url
+}
+
+Vue.prototype.$http = {
+  get: async (uri) => {
+    if (typeof GM_xmlhttpRequest == 'undefined') {
+      await delay(500)
+    }
+
+    console.log('GM_xmlhttpRequest', uri)
+
+    const txt = await GM_request(uri)
+
+    return {
+      data: JSON.parse(txt)
+    }
+  }
 }
 
 Vue.config.debug = process.env.NODE_ENV === 'dev'
