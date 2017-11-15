@@ -10,7 +10,7 @@
 
 使用前先安装 [GM_xhr 外置脚本](https://github.com/ywzhaiqi/userscript/raw/master/private/GM_xhr_outer.user.js)（请使用 Tampermonkey）
 
-知乎原图片有 `Referrer Policy` 为 `no-referrer-when-downgrade` 的限制，可用扩展 `Referer Control` 破解。
+知乎原图片有 `Referrer Policy` 为 `no-referrer-when-downgrade` 的限制，可用扩展 `Referer Control` 破解。Referer Control 扩展设置：`网址 *.zhimg.com，target host`
 
 ### todo
 

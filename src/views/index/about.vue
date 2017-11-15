@@ -36,28 +36,22 @@
 <template>
     <div class="about-container">
          <div class="github-box">
-            <a href="https://github.com/hilongjw">
-                <span class="github-link">hilongjw</span>
+            <a href="https://github.com/ywzhaiqi">
+                <span class="github-link">ywzhaiqi</span>
             </a>
             <span> / </span>
-            <a href="https://github.com/hilongjw/vue-zhihu-daily">
+            <a href="https://github.com/ywzhaiqi/vue-zhihu-daily">
                 <span class="github-link">vue-zhihu-daily</span>
             </a>
             <br>
-            <p class="github-description">Awe用vue写的知乎日报web app啦</p>
-            <a href="https://github.com/hilongjw/vue-zhihu-daily">
-                <p class="github-star">还不给我star？o(╥﹏╥)o</p>
-            </a>
+            <p class="github-description">用vue写的知乎日报web app</p>
+            <p>Referer Control 扩展设置：网址 *.zhimg.com，再选择 target host</p>
          </div>
     </div>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            author: 'Awe'
-        }
-    }
+
 }
 </script>

@@ -49,7 +49,7 @@ Vue.prototype.$Api = (url) => {
 }
 
 Vue.prototype.$http = {
-    get: async (uri) => {
+    get: async (uri, type='json') => {
         if (typeof GM_xmlhttpRequest == 'undefined') {
             await delay(500)
         }
@@ -64,8 +64,17 @@ Vue.prototype.$http = {
 
         const txt = await GM_request(uri)
 
+        let data;
+        if (type == 'html') {
+          data = new DOMParser().parseFromString(txt, 'text/html')
+        } else if (type == 'json') {
+          data = JSON.parse(txt)
+        } else {
+          data = txt
+        }
+
         return {
-            data: JSON.parse(txt)
+            data
         }
     }
 }

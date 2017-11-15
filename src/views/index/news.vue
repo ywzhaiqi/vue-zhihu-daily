@@ -105,19 +105,57 @@
                     }
                 }
             },
+            processContent() {
+              // this.loadImg()
+
+              // 外部链接新标签页打开
+              let links = this.$el.querySelectorAll('a[href^="http"]')
+              for (let link of links) {
+                link.setAttribute('target', '_blank')
+              }
+            },
             fetchNews (id) {
                 this.$http.get(this.$Api(`http://news-at.zhihu.com/api/4/news/${id}`))
                     .then(response => {
                         this.news = response.data
+
+                        // set document title
+
                         if (this.news.images && this.news.images.length) {
                             this.$covImg(this, this.news.images[0], cloudSrc => {
                                 this.coverImage = cloudSrc
                                 this.hasCoverImage = true
                             })
                         }
-                        this.$nextTick(this.loadImg)
+
+                        this.fetchNoExistsBody()
+
+                        this.$nextTick(this.processContent)
                     })
                     .catch(console.log)
+            },
+            fetchNoExistsBody() {
+              if (this.news.body.indexOf('>该文章暂不支持阅读模式</div>') == -1) return;
+
+              const shareUrl = this.news.share_url
+              if (!shareUrl) return
+
+              // 其它的手动打开
+              this.news.body = `<div style="height: 200px;display: flex;align-items: center;justify-content: center; font-size:20px;">
+                <a href="${shareUrl}" target="_blank">原文链接</a>
+              </div>`
+
+              // 有些 share_url 获取到的是微博登陆页面
+              if (shareUrl.indexOf('daily.zhihu.com') > -1) {  // 知乎的直接获取内容
+                this.$http.get(shareUrl, 'html')
+                  .then(res => {
+                    const doc = res.data
+                    let content = doc.querySelector('.content-wrap')
+                    if (content) {
+                      this.news.body = content.outerHTML
+                    }
+                  })
+              }
             }
         }
     }
